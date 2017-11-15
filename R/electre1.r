@@ -14,9 +14,7 @@ electre1 <- function(matrix, weights, c, d) {
   ele <- matrix
   
   sij <- matrix(rep(0,nrow(matrix)^2),nrow=nrow(matrix))
-  
-  i = 1
-  j = 1
+
   progress.bar <- create_progress_bar("text")
   progress.bar$init(nrow(matrix))
   
@@ -36,8 +34,8 @@ electre1 <- function(matrix, weights, c, d) {
   progress.bar <- create_progress_bar("text")
   progress.bar$init(nrow(matrix))
   
-  for(i in 1:nrow(dta)){
-    for(j in 1:nrow(dta)){
+  for(i in 1:nrow(matrix)){
+    for(j in 1:nrow(matrix)){
       if(i==j){sieqj[i,j]=0}else{
         sieqj[i,j] <- sum(weights[ele[i,]==ele[j,]])
       }
