@@ -29,7 +29,7 @@ electre1 <- function(matrix, weights, c, d) {
     progress.bar$step()
   }
   
-  sieqj <- matrix(rep(0,nrow(dta)^2),nrow=nrow(matrix))
+  sieqj <- matrix(rep(0,nrow(matrix)^2),nrow=nrow(matrix))
   
   progress.bar <- create_progress_bar("text")
   progress.bar$init(nrow(matrix))

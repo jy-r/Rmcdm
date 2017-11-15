@@ -11,7 +11,9 @@
 
 WSA <- function(matrix, weights, min) {
   wsa <- matrix
-  
+  n = nrow(matrix)
+    
+    
   vmax <- wsa %>% summarise_all(max)
   vmax <- matrix(unlist(rep(vmax, n)), ncol = ncol(matrix), byrow = TRUE)
   
