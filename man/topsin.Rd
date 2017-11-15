@@ -7,9 +7,9 @@
 topsin(matrix, weights)
 }
 \arguments{
-\item{matrix}{matrix (n \times m) of n alternatives and m crierias}
+\item{matrix}{data.frame (n \times m) of n alternatives and m crierias}
 
-\item{weights}{vector of weights size n}
+\item{weights}{data.frame of weights size 1 \times n}
 }
 \description{
 electre mcdm method

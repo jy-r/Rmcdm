@@ -3,13 +3,13 @@
 #' wsa mcdm method
 #' @param matrix data.frame (n \times m) of n alternatives and m crierias
 #' @param weights data.frame of weights size 1 \times n 
-#' @param min logical vector for which criterias should be minimalized
+#' @param which_is_min logical vector for which criterias should be minimalized
 #' @import dplyr
 #' @export WSA
 #' @examples 
 
 
-WSA <- function(matrix, weights, min) {
+WSA <- function(matrix, weights, which_is_min) {
   wsa <- matrix
   n = nrow(matrix)
     
@@ -37,6 +37,5 @@ WSA <- function(matrix, weights, min) {
   result <-
     data.frame(wsa = rowSums(wsa),
                rank = order(rowSums(wsa), decreasing = TRUE))
-  which.max(result)
   return(result)
 }

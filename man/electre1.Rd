@@ -4,12 +4,12 @@
 \alias{electre1}
 \title{Electre I}
 \usage{
-electre1(matrix, weights)
+electre1(matrix, weights, c, d)
 }
 \arguments{
-\item{matrix}{matrix (n \times m) of n alternatives and m crierias}
+\item{matrix}{data.frame (n \times m) of n alternatives and m crierias}
 
-\item{weights}{vector of weights size n}
+\item{weights}{data.frame of weights size 1 \times n}
 
 \item{c}{}
 

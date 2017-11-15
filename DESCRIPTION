@@ -4,8 +4,7 @@ Version: 0.0.0.9000
 Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
 Description: Solving simple linear programing tasks by simplex algorithm.
 Depends: R (>= 3.3.0), 
-	dplyr, 
-	plyr
+	dplyr
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

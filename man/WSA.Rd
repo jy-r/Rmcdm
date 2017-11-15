@@ -4,14 +4,14 @@
 \alias{WSA}
 \title{WSA}
 \usage{
-WSA(matrix, weights, min)
+WSA(matrix, weights, which_is_min)
 }
 \arguments{
-\item{matrix}{matrix (n \times m) of n alternatives and m crierias}
+\item{matrix}{data.frame (n \times m) of n alternatives and m crierias}
 
-\item{weights}{vector of weights size n}
+\item{weights}{data.frame of weights size 1 \times n}
 
-\item{min}{logical vector for which criterias should be minimalized}
+\item{which_is_min}{logical vector for which criterias should be minimalized}
 }
 \description{
 wsa mcdm method

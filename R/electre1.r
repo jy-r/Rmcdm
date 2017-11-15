@@ -5,7 +5,7 @@
 #' @param weights data.frame of weights size 1 \times n 
 #' @param c 
 #' @param d 
-#' @import dplyr, plyr
+#' @import dplyr
 #' @export electre1
 #' @examples 
 
@@ -15,24 +15,19 @@ electre1 <- function(matrix, weights, c, d) {
   
   sij <- matrix(rep(0,nrow(matrix)^2),nrow=nrow(matrix))
 
-  progress.bar <- create_progress_bar("text")
-  progress.bar$init(nrow(matrix))
-  
-  
+
   for(i in 1:nrow(matrix)){
     for(j in 1:nrow(matrix)){
       if(i==j){sij[i,j]=0}else{
         sij[i,j] <- sum(weights[ele[i,]>ele[j,]])
       }
     }
-    #progress bar
-    progress.bar$step()
+
   }
   
   sieqj <- matrix(rep(0,nrow(matrix)^2),nrow=nrow(matrix))
   
-  progress.bar <- create_progress_bar("text")
-  progress.bar$init(nrow(matrix))
+
   
   for(i in 1:nrow(matrix)){
     for(j in 1:nrow(matrix)){
@@ -40,8 +35,7 @@ electre1 <- function(matrix, weights, c, d) {
         sieqj[i,j] <- sum(weights[ele[i,]==ele[j,]])
       }
     }
-    #progress bar
-    progress.bar$step()
+
   }
   
   cij = sij + sieqj 
@@ -49,8 +43,7 @@ electre1 <- function(matrix, weights, c, d) {
   
   dij <- matrix(rep(0,nrow(matrix)^2),nrow=nrow(matrix))
   
-  progress.bar <- create_progress_bar("text")
-  progress.bar$init(nrow(matrix))
+
   for(i in 1:nrow(matrix)){
     for(j in 1:nrow(matrix)){
       y <- ele[i,]<ele[j,]
@@ -58,8 +51,6 @@ electre1 <- function(matrix, weights, c, d) {
         dij[i,j] <- max(abs(ele[i,y]-ele[j,y]))/max(abs(ele[i,]-ele[j,]))
       }
     }
-    #progress bar
-    progress.bar$step()
   }
   
   dij[is.infinite(dij)]<-0
@@ -69,5 +60,5 @@ electre1 <- function(matrix, weights, c, d) {
   
   pij <- as.data.frame(pij)
   result = rowSums(pij)
-  return(result)
+  return(list(result=result, pref_matrix=pij) )
 }

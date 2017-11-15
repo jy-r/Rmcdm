@@ -9,7 +9,7 @@
 
 
 topsin <- function(matrix, weights) {
-  ele <- matrix
+  top <- matrix
   n = nrow(matrix)
   
   
