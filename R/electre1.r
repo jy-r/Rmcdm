@@ -1,8 +1,8 @@
 #' Electre I 
 #' 
 #' electre mcdm method
-#' @param matrix matrix (n \times m) of n alternatives and m crierias
-#' @param weights vector of weights size n 
+#' @param matrix data.frame (n \times m) of n alternatives and m crierias
+#' @param weights data.frame of weights size 1 \times n 
 #' @param c 
 #' @param d 
 #' @import dplyr, plyr
@@ -11,8 +11,7 @@
 
 
 electre1 <- function(matrix, weights, c, d) {
-  weights <- data.frame(weights)
-  ele <- data.frame(matrix)
+  ele <- matrix
   
   sij <- matrix(rep(0,nrow(matrix)^2),nrow=nrow(matrix))
   

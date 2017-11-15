@@ -1,8 +1,8 @@
 #' WSA
 #' 
 #' wsa mcdm method
-#' @param matrix matrix (n \times m) of n alternatives and m crierias
-#' @param weights vector of weights size n 
+#' @param matrix data.frame (n \times m) of n alternatives and m crierias
+#' @param weights data.frame of weights size 1 \times n 
 #' @param min logical vector for which criterias should be minimalized
 #' @import dplyr
 #' @export WSA
@@ -10,8 +10,7 @@
 
 
 WSA <- function(matrix, weights, min) {
-  weights <- data.frame(weights)
-  wsa <- data.frame(matrix)
+  wsa <- matrix
   
   vmax <- wsa %>% summarise_all(max)
   vmax <- matrix(unlist(rep(vmax, n)), ncol = ncol(matrix), byrow = TRUE)
