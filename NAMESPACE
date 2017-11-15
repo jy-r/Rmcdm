@@ -3,5 +3,4 @@
 export(WSA)
 export(electre1)
 import("dplyr,")
-import(dplyr)
-import(plyr)
+

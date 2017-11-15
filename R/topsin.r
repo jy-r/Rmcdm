@@ -4,7 +4,7 @@
 #' @param matrix matrix (n \times m) of n alternatives and m crierias
 #' @param weights vector of weights size n 
 #' @import dplyr
-#' @export electre1
+#' @export topsin
 #' @examples 
 
 
