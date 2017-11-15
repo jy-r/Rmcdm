@@ -7,5 +7,5 @@ Multicriteria decision making methods for R
 Package can be installed by:
 
 ```
-devtools::install_github("jy-r/Rmcdm")]
+devtools::install_github("jy-r/Rmcdm")
 ```
