@@ -9,18 +9,15 @@
 
 
 topsin <- function(matrix, weights) {
-  n = nrow(dta)
+  weights <- data.frame(weights)
+  ele <- data.frame(matrix)
+  n = nrow(matrix)
   
-  #transform columns from min to max (in example skip)
-  vmax <- top %>% summarise_all(max)
-  top[,14]<-vmax[14]-top[,14]
-  top[,15]<-vmax[15]-top[,15]
-  top[,16]<-vmax[16]-top[,16]
   
   norm <- sqrt(colSums(top^2)) 
-  norm <- matrix(unlist(rep(norm,n)), ncol=ncol(dta), byrow=TRUE)
+  norm <- matrix(unlist(rep(norm,n)), ncol=ncol(matrix), byrow=TRUE)
   
-  weights.top <- matrix(unlist(rep(weights,n)), ncol=ncol(dta), byrow=TRUE)
+  weights.top <- matrix(unlist(rep(weights,n)), ncol=ncol(matrix), byrow=TRUE)
   
   
   R = top/norm
@@ -28,9 +25,9 @@ topsin <- function(matrix, weights) {
   Rw = R*weights.top
   
   ideal <- Rw %>% summarise_all(max)
-  ideal <- matrix(unlist(rep(ideal,n)), ncol=ncol(dta), byrow=TRUE)
+  ideal <- matrix(unlist(rep(ideal,n)), ncol=ncol(matrix), byrow=TRUE)
   basal <- Rw %>% summarise_all(min)
-  basal <- matrix(unlist(rep(basal,n)), ncol=ncol(dta), byrow=TRUE)
+  basal <- matrix(unlist(rep(basal,n)), ncol=ncol(matrix), byrow=TRUE)
   
   dplus <- sqrt(rowSums((Rw-ideal)^2))
   

@@ -10,20 +10,20 @@
 #' @examples 
 
 
-electre1 <- function(matrix, weights) {
+electre1 <- function(matrix, weights, c, d) {
   weights <- data.frame(weights)
   ele <- data.frame(matrix)
   
-  sij <- matrix(rep(0,nrow(dta)^2),nrow=nrow(dta))
+  sij <- matrix(rep(0,nrow(matrix)^2),nrow=nrow(matrix))
   
   i = 1
   j = 1
   progress.bar <- create_progress_bar("text")
-  progress.bar$init(nrow(dta))
+  progress.bar$init(nrow(matrix))
   
   
-  for(i in 1:nrow(dta)){
-    for(j in 1:nrow(dta)){
+  for(i in 1:nrow(matrix)){
+    for(j in 1:nrow(matrix)){
       if(i==j){sij[i,j]=0}else{
         sij[i,j] <- sum(weights[ele[i,]>ele[j,]])
       }
@@ -32,10 +32,10 @@ electre1 <- function(matrix, weights) {
     progress.bar$step()
   }
   
-  sieqj <- matrix(rep(0,nrow(dta)^2),nrow=nrow(dta))
+  sieqj <- matrix(rep(0,nrow(dta)^2),nrow=nrow(matrix))
   
   progress.bar <- create_progress_bar("text")
-  progress.bar$init(nrow(dta))
+  progress.bar$init(nrow(matrix))
   
   for(i in 1:nrow(dta)){
     for(j in 1:nrow(dta)){
@@ -50,12 +50,12 @@ electre1 <- function(matrix, weights) {
   cij = sij + sieqj 
   
   
-  dij <- matrix(rep(0,nrow(dta)^2),nrow=nrow(dta))
+  dij <- matrix(rep(0,nrow(matrix)^2),nrow=nrow(matrix))
   
   progress.bar <- create_progress_bar("text")
-  progress.bar$init(nrow(dta))
-  for(i in 1:nrow(dta)){
-    for(j in 1:nrow(dta)){
+  progress.bar$init(nrow(matrix))
+  for(i in 1:nrow(matrix)){
+    for(j in 1:nrow(matrix)){
       y <- ele[i,]<ele[j,]
       if(any(y)){
         dij[i,j] <- max(abs(ele[i,y]-ele[j,y]))/max(abs(ele[i,]-ele[j,]))
@@ -67,10 +67,8 @@ electre1 <- function(matrix, weights) {
   
   dij[is.infinite(dij)]<-0
   
-  c = 0.5
-  d = 0.9
   
-  pij <- matrix(as.numeric(cij>c & dij<d),nrow=nrow(dta))
+  pij <- matrix(as.numeric(cij>c & dij<d),nrow=nrow(matrix))
   
   pij <- as.data.frame(pij)
   result = rowSums(pij)

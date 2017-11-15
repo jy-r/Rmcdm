@@ -14,13 +14,13 @@ WSA <- function(matrix, weights, min) {
   wsa <- data.frame(matrix)
   
   vmax <- wsa %>% summarise_all(max)
-  vmax <- matrix(unlist(rep(vmax, n)), ncol = ncol(dta), byrow = TRUE)
+  vmax <- matrix(unlist(rep(vmax, n)), ncol = ncol(matrix), byrow = TRUE)
   
   vmin <- wsa %>% summarise_all(min)
-  vmin <- matrix(unlist(rep(vmin, n)), ncol = ncol(dta), byrow = TRUE)
+  vmin <- matrix(unlist(rep(vmin, n)), ncol = ncol(matrix), byrow = TRUE)
   
   weights.wsa <-
-    matrix(unlist(rep(weights, n)), ncol = ncol(dta), byrow = TRUE)
+    matrix(unlist(rep(weights, n)), ncol = ncol(matrix), byrow = TRUE)
   
   
   wsa <- as.matrix(wsa)
