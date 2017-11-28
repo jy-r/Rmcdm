@@ -2,5 +2,5 @@
 
 export(WSA)
 export(electre1)
-export(topsin)
+export(topsis)
 import(dplyr)

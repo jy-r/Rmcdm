@@ -1,14 +1,14 @@
-#' Topsin 
+#' Topsis
 #' 
 #' electre mcdm method
 #' @param matrix data.frame (n \times m) of n alternatives and m crierias
 #' @param weights data.frame of weights size 1 \times n 
 #' @import dplyr
-#' @export topsin
+#' @export topsis
 #' @examples 
 
 
-topsin <- function(matrix, weights) {
+topsis <- function(matrix, weights) {
   top <- matrix
   n = nrow(matrix)
   
