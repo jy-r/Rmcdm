@@ -36,6 +36,6 @@ topsis <- function(matrix, weights) {
   
   result <-
     data.frame(ci = ci,
-               rank = rank(-ci)
+               rank = rank(-ci))
   return(result)
 }
