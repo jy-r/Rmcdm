@@ -33,9 +33,14 @@ WSA <- function(matrix, weights, which_is_min) {
   
   wsa <- wsa * weights.wsa
   
+  wsa.sum <- rowSums(wsa)
+  
   wsa <- as.data.frame(wsa)
+  
+
+  
   result <-
-    data.frame(wsa = rowSums(wsa),
-               rank = order(rowSums(wsa), decreasing = TRUE))
+    data.frame(wsa = wsa.sum,
+               rank = rank(-wsa.sum))
   return(result)
 }
