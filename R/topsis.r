@@ -1,11 +1,28 @@
 #' Topsis
 #' 
-#' electre mcdm method
+#' Topsis Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS)
+#'  is a multi-criteria decision analysis method.
 #' @param matrix data.frame (n \times m) of n alternatives and m crierias
 #' @param weights data.frame of weights size 1 \times n 
 #' @import dplyr
 #' @export topsis
 #' @examples 
+#' matrix <- structure(list(price = c(240, 160, 200, 160, 50, 0, 220),
+#'                          power = c(900,300, 100, 100, 100, 0, 100), 
+#'                          ser = c(1, 1, 0, 0, 1, 1, 1), 
+#'                          pos = c(1, 1, 1, 0, 1, 0, 1), 
+#'                          safty = c(1, 1, 1, 0, 1, 0, 1), 
+#'                          app = c(5, 7, 8, 4, 8, 6, 7)),
+#'                          .Names = c("price", "power", "ser", "pos",  "safty", "app"), 
+#'                          row.names = c(NA, -7L), class = "data.frame")
+#' 
+#' weights <- structure(list(X1 = c(0.206896551724138, 0.172413793103448, 0.0689655172413793, 
+#'                                  0.137931034482759, 0.137931034482759, 0.275862068965517)),
+#'                      .Names = "X1", row.names = c(NA, -6L), class = "data.frame")
+#'                      
+#' topsin(matrix, weights)
+
+
 
 
 topsis <- function(matrix, weights) {

@@ -7,6 +7,15 @@
 #' @import dplyr
 #' @export WSA
 #' @examples 
+#' matrix <- structure(list(edu = c(4, 2, 3, 4, 4, 3), eng = c(1, 2, 2, 3, 2, 3), 
+#'                          pc = c(5, 4, 5, 2, 2, 3), prax = c(1, 0, 3, 2, 1, 3), 
+#'                          int = c(85, 80, 85, 70, 65, 90)), .Names = c("edu", "eng","pc", "prax", "int"),
+#'                           row.names = c(NA, -6L), class = "data.frame")
+#' weights <- structure(list(X1 = c(0.2, 0.333333333333333, 0.133333333333333, 
+#'                                 0.0666666666666667, 0.266666666666667)),
+#'                                  .Names = "X1", row.names = c(NA, -5L), class = "data.frame")
+#' which_is_min = rep(0,5)
+#' WSA(matrix, weights, which_is_min)
 
 
 WSA <- function(matrix, weights, which_is_min) {
